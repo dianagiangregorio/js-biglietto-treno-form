@@ -50,16 +50,6 @@ myForm.addEventListener('submit', function (event) {
     userAge.value = '';
     userKm.value = '';
 
-    // // let finalPrice = numberOfKm * 0.21;
-    // if (passengerAge < 18) {
-    //     finalPrice = ticketCostUnder18;
-    // } else if (passengerAge > 65) {
-    //     finalPrice = ticketCostOver65
-    // } else {
-    //     finalPrice
-    // }
-
-
     //visualizzo il costo in pagina
 
     resultText.innerHTML = `Il costo del biglietto è ${ticketCost.toFixed(2)} euro`
