@@ -26,21 +26,19 @@ myForm.addEventListener('submit', function (event) {
     //Verifico che entrambi i valori siano effettivamente dei numeri
     //eseguo il calcolo del costo del biglietto
 
+    let ticketCost = numberOfKm * 0.21;
     if (!isNaN(numberOfKm) && !isNaN(passengerAge)) {
         if (passengerAge < 18) {
-            const ticketCost = numberOfKm * 0.21;
             const discountUnder18 = (ticketCost * 20)/100;
-            const ticketCostUnder18 = ticketCost - discountUnder18;
-            console.log(`I passeggeri Under 18 hanno uno sconto del 20%, quindi il costo del biglietto è ${ticketCostUnder18.toFixed(2)}`);
+            ticketCost = ticketCost - discountUnder18;
+            console.log(`I passeggeri Under 18 hanno uno sconto del 20%, quindi il costo del biglietto è ${ticketCost.toFixed(2)}`);
         }
         else if (passengerAge > 65) {
-            const ticketCost = numberOfKm * 0.21;
             const discountOver65 = (ticketCost * 40)/100;
-            const ticketCostOver65 = ticketCost - discountOver65;
-            console.log(`I passeggeri Over 65 hanno uno sconto del 40%, quindi il costo del biglietto è ${ticketCostOver65.toFixed(2)}`);
+            ticketCost = ticketCost - discountOver65;
+            console.log(`I passeggeri Over 65 hanno uno sconto del 40%, quindi il costo del biglietto è ${ticketCost.toFixed(2)}`);
         }
         else {
-            const ticketCost = numberOfKm * 0.21;
             console.log(`Il costo del biglietto è ${ticketCost.toFixed(2)}`);
         }
     }
@@ -52,9 +50,19 @@ myForm.addEventListener('submit', function (event) {
     userAge.value = '';
     userKm.value = '';
 
+    // // let finalPrice = numberOfKm * 0.21;
+    // if (passengerAge < 18) {
+    //     finalPrice = ticketCostUnder18;
+    // } else if (passengerAge > 65) {
+    //     finalPrice = ticketCostOver65
+    // } else {
+    //     finalPrice
+    // }
+
+
     //visualizzo il costo in pagina
 
-    resultText.innerHTML = 'Il costo del biglietto è stato calcolato'
+    resultText.innerHTML = `Il costo del biglietto è ${ticketCost.toFixed(2)} euro`
     resultContainer.classList.remove('d-none');
 
 })
